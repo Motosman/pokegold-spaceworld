@@ -29,6 +29,7 @@ AnimateTilesetImpl:
 	jp hl
 
 SECTION "engine/dumps/bank23.asm@WaitTileAnimation", ROMX
+
 WaitTileAnimation:
 ; Do nothing this frame.
 	ret
