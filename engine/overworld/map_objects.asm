@@ -237,7 +237,7 @@ UpdateTallGrassFlags:
 ; This entire function was blanked out for the final game. See 'UselessAndA' in pokegold.
 ResetObjFlags2_7:
 ; This comparison is pointless because the instructions below it have been nop'd out.
-	and COLLISION_TYPE_MASK
+	and COLL_TYPE_MASK
 	cp HI_NYBBLE_WARPS
 	nop
 	nop

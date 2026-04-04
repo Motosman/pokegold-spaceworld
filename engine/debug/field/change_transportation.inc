@@ -134,7 +134,7 @@ TransportationList:
 FieldDebug_CheckFacingSurfable:
 	push af
 	call GetFacingTileCoord
-	and COLLISION_TYPE_MASK
+	and COLL_TYPE_MASK
 	cp OLD_HI_NYBBLE_WATER ; happens to match HI_NYBBLE_WATER
 	jr z, .surfable
 	cp OLD_HI_NYBBLE_WATER_ALT

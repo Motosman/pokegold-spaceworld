@@ -454,13 +454,13 @@ Function2407::
 	and %00001100
 	ld [wPlayerFacing], a
 	ld a, [wPlayerTile]
-	and COLLISION_TYPE_MASK
+	and COLL_TYPE_MASK
 	cp HI_NYBBLE_WARPS
 	ret nz
 	ld a, [wPlayerTile]
-	cp COLLISION_STEPS
+	cp COLL_STEPS
 	ret z
-	cp COLLISION_CARPET
+	cp COLL_CARPET
 	ret z
 	cp $78
 	ret z

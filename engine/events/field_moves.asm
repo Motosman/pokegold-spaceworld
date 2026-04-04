@@ -123,10 +123,10 @@ IsCuttableTile:
 	ret
 
 CuttableTiles:
-	db $81
-	db $82
-	db $8A
-	db $8B
+	db COLL_OLD_GRASS_81
+	db COLL_OLD_GRASS_82
+	db COLL_OLD_GRASS_82 | COLL_FLAG
+	db COLL_OLD_GRASS_83 | COLL_FLAG
 	db -1
 
 FailCut:

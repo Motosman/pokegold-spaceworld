@@ -108,13 +108,13 @@ INCBIN "gfx/tilesets/silent_hill.common.2bpp"
 SilentHill_Meta:
 INCBIN "data/tilesets/silent_hill_metatiles.bin"
 SilentHill_Coll:
-INCBIN "data/tilesets/silent_hill_collision.bin"
+INCLUDE "data/tilesets/silent_hill_collision.inc"
 
 SECTION "gfx.asm@Bank 6 Tilesets Forest", ROMX
 Forest_Meta:
 INCBIN "data/tilesets/forest_metatiles.bin"
 Forest_Coll:
-INCBIN "data/tilesets/forest_collision.bin"
+INCLUDE "data/tilesets/forest_collision.inc"
 
 SECTION "gfx.asm@Bank 6 Tilesets Old City", ROMX
 OldCity_GFX:
@@ -122,7 +122,7 @@ INCBIN "gfx/tilesets/old_city.common.2bpp"
 OldCity_Meta:
 INCBIN "data/tilesets/old_city_metatiles.bin"
 OldCity_Coll:
-INCBIN "data/tilesets/old_city_collision.bin"
+INCLUDE "data/tilesets/old_city_collision.inc"
 
 SECTION "gfx.asm@Bank 6 Tilesets West", ROMX
 West_GFX:
