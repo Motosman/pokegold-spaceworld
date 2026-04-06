@@ -5,7 +5,7 @@ SECTION "engine/overworld/object_collision.asm", ROMX
 CanObjectMoveInDirection:
 	ld hl, OBJECT_FLAGS1
 	add hl, bc
-	bit COLL_TILES_F, [hl]
+	bit NOCLIP_TILES_F, [hl]
 	jr z, .noclip_tiles
 	push hl
 	call _IsObjectCollisionTileSolid
@@ -13,7 +13,7 @@ CanObjectMoveInDirection:
 	ret c
 
 .noclip_tiles
-	bit COLL_OBJS_F, [hl]
+	bit NOCLIP_OBJS_F, [hl]
 	jr z, .noclip_objs
 	push hl
 	push bc
@@ -68,7 +68,7 @@ CheckFacingObject:
 	call GetFacingTileCoord
 	cp COLL_COUNTER
 	jr z, .counter
-	cp (COLL_COUNTER | COLL_FLAG)
+	cp (COLL_COUNTER | COLLFLAG_ENCOUNTER)
 	jr nz, .not_counter
 .counter
 	ld a, [wPlayerMapX]

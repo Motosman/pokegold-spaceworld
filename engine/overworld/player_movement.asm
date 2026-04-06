@@ -250,7 +250,7 @@ CheckSkateDown:
 	jr nc, .can_skate
 	cp COLL_OLD_LEDGE
 	jr z, .jump
-	cp (COLL_OLD_ROCK | COLL_FLAG)
+	cp (COLL_OLD_PIT_SKATE | COLLFLAG_ENCOUNTER)
 	jr nz, .collision
 
 .jump
@@ -283,7 +283,7 @@ CheckSkateUp:
 	jr c, .collision
 	call IsPlayerCollisionTileSolid
 	jr nc, .can_skate
-	cp (COLL_OLD_ROCK | COLL_FLAG)
+	cp (COLL_OLD_PIT_SKATE | COLLFLAG_ENCOUNTER)
 	jr nz, .collision
 	ld a, movement_fast_jump_step | UP
 	ret
@@ -314,7 +314,7 @@ CheckSkateLeft:
 	jr c, .collision
 	call IsPlayerCollisionTileSolid
 	jr nc, .can_skate
-	cp (COLL_OLD_ROCK | COLL_FLAG)
+	cp (COLL_OLD_PIT_SKATE | COLLFLAG_ENCOUNTER)
 	jr nz, .collision
 	ld a, movement_fast_jump_step | LEFT
 	ret
@@ -345,7 +345,7 @@ CheckSkateRight:
 	jr c, .collision
 	call IsPlayerCollisionTileSolid
 	jr nc, .can_skate
-	cp (COLL_OLD_ROCK | COLL_FLAG)
+	cp (COLL_OLD_PIT_SKATE | COLLFLAG_ENCOUNTER)
 	jr nz, .collision
 	ld a, movement_fast_jump_step | RIGHT
 	ret
@@ -374,11 +374,11 @@ OldIsTileCollisionGrass::
 ;  z - grass
 	cp COLL_OLD_GRASS_82
 	ret z
-	cp COLL_OLD_GRASS_83
+	cp COLL_OLD_GRASS
 	ret z
-	cp (COLL_OLD_GRASS_82 | COLL_FLAG)
+	cp (COLL_OLD_GRASS_82 | COLLFLAG_ENCOUNTER)
 	ret z
-	cp (COLL_OLD_GRASS_83 | COLL_FLAG)
+	cp (COLL_OLD_GRASS    | COLLFLAG_ENCOUNTER)
 	ret
 
 OldCheckMovementSurf::
@@ -490,10 +490,10 @@ OldIsTileCollisionWater::
 ; Result:
 ;  c - water
 ; nc - not water
-	and COLL_TYPE_MASK
-	cp OLD_HI_NYBBLE_WATER
+	and COLLMASK_TYPE
+	cp COLLMASK_TYPE_OLD_WATER
 	ret z
-	cp OLD_HI_NYBBLE_WATER_ALT
+	cp COLLMASK_TYPE_OLD_WATER_ALT
 	ret z
 	scf
 	ret
@@ -593,7 +593,7 @@ GetPlayerMovementByState:
 CheckMovementWalk::
 	ld a, [wPlayerTile]
 	swap a
-	and COLL_TYPE_MASK >> 4
+	and COLLMASK_TYPE >> 4
 	ld hl, .WalkingCollisionTable
 	jp CallJumptable
 
@@ -624,7 +624,7 @@ CheckMovementWalkSolid::
 
 CheckMovementWalkLand::
 	ld a, [wPlayerTile]
-	and COLL_SUBTYPE_MASK
+	and COLLMASK_SUBTYPE
 	jr nz, .force_movement
 	call CheckMovementWalkRegular
 	call SlowDownMovementWalk
@@ -632,16 +632,16 @@ CheckMovementWalkLand::
 
 .force_movement
 	ld b, movement_step | DOWN
-	cp (COLL_LAND_S & COLL_SUBTYPE_MASK)
+	cp (COLL_LAND_S & COLLMASK_SUBTYPE)
 	jr z, .finish
 	ld b, movement_step | UP
-	cp (COLL_LAND_N & COLL_SUBTYPE_MASK)
+	cp (COLL_LAND_N & COLLMASK_SUBTYPE)
 	jr z, .finish
 	ld b, movement_step | LEFT
-	cp (COLL_LAND_W & COLL_SUBTYPE_MASK)
+	cp (COLL_LAND_W & COLLMASK_SUBTYPE)
 	jr z, .finish
 	ld b, movement_step | RIGHT
-	cp (COLL_LAND_E & COLL_SUBTYPE_MASK)
+	cp (COLL_LAND_E & COLLMASK_SUBTYPE)
 	jr z, .finish
 	; fall-through --> map other codes to COLL_LAND_E
 .finish
@@ -668,18 +668,18 @@ SlowDownMovementWalk:
 
 CheckMovementWalkLand2::
 	ld a, [wPlayerTile]
-	and COLL_SUBTYPE_MASK
+	and COLLMASK_SUBTYPE
 	ld b, movement_step | DOWN
-	cp (COLL_LAND2_S & COLL_SUBTYPE_MASK)
+	cp (COLL_LAND2_S & COLLMASK_SUBTYPE)
 	jr z, .finish
 	ld b, movement_step | UP
-	cp (COLL_LAND2_N & COLL_SUBTYPE_MASK)
+	cp (COLL_LAND2_N & COLLMASK_SUBTYPE)
 	jr z, .finish
 	ld b, movement_step | LEFT
-	cp (COLL_LAND2_W & COLL_SUBTYPE_MASK)
+	cp (COLL_LAND2_W & COLLMASK_SUBTYPE)
 	jr z, .finish
 	ld b, movement_step | RIGHT
-	cp (COLL_LAND2_E & COLL_SUBTYPE_MASK)
+	cp (COLL_LAND2_E & COLLMASK_SUBTYPE)
 	jr z, .finish
 	; fall-through --> map other codes to COLL_LAND2_E
 .finish
@@ -691,12 +691,12 @@ UnusedCheckMovementWalk60::
 
 CheckMovementWalkWarp::
 	ld a, [wPlayerTile]
-	and COLL_SUBTYPE_MASK
+	and COLLMASK_SUBTYPE
 	jr z, .check_dpad
 	cp 1
 	jr z, .move_down
 	ld a, [wPlayerTile]
-	cp $7a
+	cp (COLL_LADDER | COLLFLAG_ENCOUNTER)
 	jr z, .move_down
 	jp CheckMovementWalkRegular
 .move_down
@@ -779,12 +779,12 @@ CheckMovementWalkJump:
 
 .down
 	ld a, [wPlayerTile]
-	and COLL_SUBTYPE_MASK
-	cp (COLL_JUMP_S & COLL_SUBTYPE_MASK)
+	and COLLMASK_SUBTYPE
+	cp (COLL_JUMP_S & COLLMASK_SUBTYPE)
 	jr z, .jump_down
-	cp (COLL_JUMP_SE & COLL_SUBTYPE_MASK)
+	cp (COLL_JUMP_SE & COLLMASK_SUBTYPE)
 	jr z, .jump_down
-	cp (COLL_JUMP_SW & COLL_SUBTYPE_MASK)
+	cp (COLL_JUMP_SW & COLLMASK_SUBTYPE)
 	jr z, .jump_down
 	jp CheckWalkDown
 .jump_down
@@ -793,12 +793,12 @@ CheckMovementWalkJump:
 
 .up
 	ld a, [wPlayerTile]
-	and COLL_SUBTYPE_MASK
-	cp (COLL_JUMP_N & COLL_SUBTYPE_MASK)
+	and COLLMASK_SUBTYPE
+	cp (COLL_JUMP_N & COLLMASK_SUBTYPE)
 	jr z, .jump_up
-	cp (COLL_JUMP_NE & COLL_SUBTYPE_MASK)
+	cp (COLL_JUMP_NE & COLLMASK_SUBTYPE)
 	jr z, .jump_up
-	cp (COLL_JUMP_NW & COLL_SUBTYPE_MASK)
+	cp (COLL_JUMP_NW & COLLMASK_SUBTYPE)
 	jr z, .jump_up
 	jp CheckWalkUp
 .jump_up
@@ -807,12 +807,12 @@ CheckMovementWalkJump:
 
 .left
 	ld a, [wPlayerTile]
-	and COLL_SUBTYPE_MASK
-	cp (COLL_JUMP_W & COLL_SUBTYPE_MASK)
+	and COLLMASK_SUBTYPE
+	cp (COLL_JUMP_W & COLLMASK_SUBTYPE)
 	jr z, .jump_left
-	cp (COLL_JUMP_SW & COLL_SUBTYPE_MASK)
+	cp (COLL_JUMP_SW & COLLMASK_SUBTYPE)
 	jr z, .jump_left
-	cp (COLL_JUMP_NW & COLL_SUBTYPE_MASK)
+	cp (COLL_JUMP_NW & COLLMASK_SUBTYPE)
 	jr z, .jump_left
 	jp CheckWalkLeft
 .jump_left
@@ -821,12 +821,12 @@ CheckMovementWalkJump:
 
 .right
 	ld a, [wPlayerTile]
-	and COLL_SUBTYPE_MASK
-	cp (COLL_JUMP_E & COLL_SUBTYPE_MASK)
+	and COLLMASK_SUBTYPE
+	cp (COLL_JUMP_E & COLLMASK_SUBTYPE)
 	jr z, .jump_right
-	cp (COLL_JUMP_SE & COLL_SUBTYPE_MASK)
+	cp (COLL_JUMP_SE & COLLMASK_SUBTYPE)
 	jr z, .jump_right
-	cp (COLL_JUMP_NE & COLL_SUBTYPE_MASK)
+	cp (COLL_JUMP_NE & COLLMASK_SUBTYPE)
 	jr z, .jump_right
 	jp CheckWalkRight
 .jump_right
@@ -892,7 +892,7 @@ CheckWalkRight::
 CheckMovementSurf::
 	ld a, [wPlayerTile]
 	swap a
-	and COLL_TYPE_MASK >> 4
+	and COLLMASK_TYPE >> 4
 	ld hl, .SurfCollisionTable
 	jp CallJumptable
 
@@ -928,8 +928,8 @@ CheckMovementSurfRegular::
 
 CheckMovementSurfWater::
 	ld a, [wPlayerTile]
-	and COLL_SUBTYPE_MASK
-	cp (COLL_WATERFALL & COLL_SUBTYPE_MASK)
+	and COLLMASK_SUBTYPE
+	cp (COLL_WATERFALL & COLLMASK_SUBTYPE)
 	jr nz, CheckMovementSurfRegular
 ; waterfall
 	ld a, movement_big_step | DOWN
@@ -937,17 +937,17 @@ CheckMovementSurfWater::
 
 CheckMovementSurfWater2::
 	ld a, [wPlayerTile]
-	and COLL_WATER_SUBTYPE_MASK
+	and COLLMASK_WATER_SUBTYPE
 	ld d, movement_step | RIGHT
 	jr z, .finish ; COLL_WATER2_E
 	ld d, movement_step | LEFT
-	cp (COLL_WATER2_W & COLL_WATER_SUBTYPE_MASK)
+	cp (COLL_WATER2_W & COLLMASK_WATER_SUBTYPE)
 	jr z, .finish
 	ld d, movement_step | UP
-	cp (COLL_WATER2_N & COLL_WATER_SUBTYPE_MASK)
+	cp (COLL_WATER2_N & COLLMASK_WATER_SUBTYPE)
 	jr z, .finish
 	ld d, movement_step | DOWN
-	cp (COLL_WATER2_S & COLL_WATER_SUBTYPE_MASK)
+	cp (COLL_WATER2_S & COLLMASK_WATER_SUBTYPE)
 	jr z, .finish
 	; fall-through --> no aliasing due to mask
 .finish
