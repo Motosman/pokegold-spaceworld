@@ -380,21 +380,17 @@ ROMX $21
 
 ROMX $23
 	org $4000
-	"engine/dumps/bank23.asm@AnimateTilesetImpl"
-	org $401f
-	"data/tileset_anims.asm"
-	org $411b
-	"engine/dumps/bank23.asm@WaitTileAnimation"
+	"engine/tileset_anims.asm"
+	org $4209
+	"engine/overworld/healing_machine.asm"
 	org $42dc
 	"engine/palettes.asm"
-	org $446d
-	"engine/dumps/bank23.asm@RestoreOverworldMapTiles"
 	org $44be
 	"engine/battle/battle_transitions.asm"
 	org $4940
-	"engine/dumps/bank23.asm@EnterMapAnim_Old"
+	"engine/overworld/player_animations_old.asm"
 	org $4cfd
-	"engine/dumps/bank23.asm@ClearSpriteAnims"
+	"engine/sprite_anims/core.asm"
 	org $60cc
 	"gfx.asm@Pokemon Party Sprites"
 	org $70cc
