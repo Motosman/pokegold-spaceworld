@@ -4,7 +4,7 @@
 	const FLY_POINT_SILENT_HILL	; 0
 	const FLY_POINT_OLD			; 1
 	const FLY_POINT_WEST		; 2
-	const FLY_POINT_HIGHTECH	; 3
+	const FLY_POINT_HIGH_TECH	; 3
 	const FLY_POINT_FONT		; 4
 	const FLY_POINT_BIRDON		; 5
 	const FLY_POINT_NEWTYPE		; 6

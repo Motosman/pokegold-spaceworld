@@ -17,7 +17,7 @@ Tilesets:
 	tileset HighTech, TilesetFlowerAnim
 	tileset Birdon, TilesetWaterAnim
 	tileset Font, TilesetFontAnim
-	tileset ColdZone, TilesetWaterAnim
+	tileset North, TilesetWaterAnim
 	tileset Kanto, TilesetFlowerAnim
 	tileset South, TilesetWaterAnim
 	tileset House, TilesetNoAnim

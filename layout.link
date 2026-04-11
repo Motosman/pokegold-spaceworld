@@ -210,7 +210,7 @@ ROMX $07
 	org $4b00
 	"gfx.asm@Bank 7 Tilesets Aquarium"
 	org $5600
-	"gfx.asm@Bank 7 Tilesets Cold Zone"
+	"gfx.asm@Bank 7 Tilesets North"
 	org $6400
 	"gfx.asm@Bank 7 Tilesets Font"
 	org $7200

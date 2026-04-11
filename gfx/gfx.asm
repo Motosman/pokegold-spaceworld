@@ -156,13 +156,13 @@ INCBIN "data/tilesets/aquarium_metatiles.bin"
 Aquarium_Coll:
 INCBIN "data/tilesets/aquarium_collision.bin"
 
-SECTION "gfx.asm@Bank 7 Tilesets Cold Zone", ROMX
-ColdZone_GFX:
-INCBIN "gfx/tilesets/cold_zone.common.2bpp"
-ColdZone_Meta:
-INCBIN "data/tilesets/cold_zone_metatiles.bin"
-ColdZone_Coll:
-INCBIN "data/tilesets/cold_zone_collision.bin"
+SECTION "gfx.asm@Bank 7 Tilesets North", ROMX
+North_GFX:
+INCBIN "gfx/tilesets/north.common.2bpp"
+North_Meta:
+INCBIN "data/tilesets/north_metatiles.bin"
+North_Coll:
+INCBIN "data/tilesets/north_collision.bin"
 
 SECTION "gfx.asm@Bank 7 Tilesets Font", ROMX
 Font_GFX:
