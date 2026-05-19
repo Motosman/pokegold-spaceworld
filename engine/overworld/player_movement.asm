@@ -192,10 +192,13 @@ _CheckMovementDebug:
 	ret
 
 CheckMovementSkateboard::
+if DEF(FIX_COLL_OLD)
+else
 	call _CheckMovementSkateboard
 	jp SetPlayerMovement ; FIXME: .skip_debug_move already calls SetPlayerMovement
 	                     ;        The skateboard doesn't work, because it uses the current
 	                     ;        coordinate as player animation.
+endc
 
 _CheckMovementSkateboard:
 	ld a, [wSkatingDirection]
@@ -754,6 +757,9 @@ CheckMovementWalkSpecial::
 	jp CheckMovementWalkRegular
 
 CheckMovementWalkRegular::
+if DEF(FIX_COLL_OLD)
+	jp  _CheckMovementWalkOrBike
+else
 	ldh a, [hJoyState]
 	bit D_DOWN_F, a
 	jp nz, CheckWalkDown
@@ -764,6 +770,7 @@ CheckMovementWalkRegular::
 	bit D_RIGHT_F, a
 	jp nz, CheckWalkRight
 	jp NoWalkMovement
+endc
 
 CheckMovementWalkJump:
 	ldh a, [hJoyState]
@@ -1105,7 +1112,7 @@ CheckCollisionSometimesSolid::
 ;      00 - sometimes solid
 ;      01 - never solid
 	call GetCollisionType
-	cp SOMETIMES_SOLID
+	cp WATER_TILE
 	jr z, .sometimes_solid
 	and a
 	jr z, .never_solid

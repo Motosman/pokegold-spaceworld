@@ -6,7 +6,8 @@
 ;   \------ Type
 ;
 ; What exactly flag means or if it
-; means anything is up to Type.
+; means anything is up to Type,
+; FF is a unique exception.
 ; Old Types:
 ; 0 - Regular            8 - Cuttable
 ; 1 - ???                9 - unused
@@ -39,7 +40,11 @@ DEF COLLFLAG_ENCOUNTER EQU $08 ; enables encounters or special actions depending
 
 ; old collision data type nybbles for "COLLMASK_TYPE" 
 DEF COLLMASK_TYPE_OLD_WATER      EQU $20 ; matches COLLMASK_TYPE_WATER
+if DEF(FIX_COLL_OLD)
+DEF COLLMASK_TYPE_OLD_WATER_ALT  EQU $20
+else
 DEF COLLMASK_TYPE_OLD_WATER_ALT  EQU $40
+endc
 DEF COLLMASK_TYPE_OLD_PITS       EQU $50
 DEF COLLMASK_TYPE_OLD_WARPS      EQU $60
 DEF COLLMASK_TYPE_OLD_SPECIAL    EQU $70
@@ -55,10 +60,53 @@ DEF COLLMASK_TYPE_PITS       EQU $60
 DEF COLLMASK_TYPE_WARPS      EQU $70
 DEF COLLMASK_TYPE_MINIGAME   EQU $80
 DEF COLLMASK_TYPE_SPECIAL    EQU $90
-DEF COLLTYPE_LEDGES     EQU $a0
+DEF COLLMASK_TYPE_LEDGES     EQU $a0
 
 ; old collision constants
 
+if DEF(FIX_COLL_OLD)
+DEF COLL_OLD_FLOOR         EQU $00 ; matches COLL_FLOOR
+DEF COLL_OLD_WALL          EQU $07
+DEF COLL_OLD_FLOOR_INSIDE  EQU $00
+DEF COLL_OLD_WALL_INSIDE   EQU $07
+
+; $10 (old)
+DEF COLL_OLD_LEDGE EQU $11
+DEF COLL_OLD_STEPS EQU $13
+
+; water collisions (old)
+DEF COLL_OLD_WATER			 EQU $21 ; matches COLL_WATER
+DEF COLL_OLD_WATER_ENCOUNTER EQU $21
+
+; water collisions (hm) (old)
+DEF COLL_OLD_WATERFALL EQU $22 ; HM07
+DEF COLL_OLD_MUDPIT    EQU $23 ; NEWTYPE
+DEF COLL_OLD_42        EQU $24 ; ???
+DEF COLL_OLD_43        EQU $25 ; ???
+DEF COLL_OLD_WHIRLPOOL EQU $26 ; HM06
+
+; falling warp collisions (old)
+DEF COLL_OLD_PIT       EQU $60
+DEF COLL_OLD_PIT_SKATE EQU $62
+DEF COLL_OLD_PIT_CAVE  EQU $60
+
+; warp collisions (old)
+DEF COLL_OLD_CARPET EQU $70
+DEF COLL_OLD_DOOR   EQU $71
+DEF COLL_OLD_LADDER EQU $72
+
+; special collisions (old)
+DEF COLL_OLD_SIGNPOST  EQU $95
+DEF COLL_OLD_SHOP_SIGN EQU $95
+DEF COLL_OLD_MART_ITEM EQU $97
+DEF COLL_OLD_COUNTER   EQU $90
+
+; cuttable tiles (old)
+DEF COLL_OLD_CUT_TREE EQU $12
+DEF COLL_OLD_GRASS_81 EQU $10
+DEF COLL_OLD_GRASS_82 EQU $10
+DEF COLL_OLD_GRASS    EQU $10
+else
 DEF COLL_OLD_FLOOR         EQU $00 ; matches COLL_FLOOR
 DEF COLL_OLD_WALL          EQU $01
 DEF COLL_OLD_FLOOR_INSIDE  EQU $03
@@ -100,6 +148,7 @@ DEF COLL_OLD_CUT_TREE EQU $80
 DEF COLL_OLD_GRASS_81 EQU $81
 DEF COLL_OLD_GRASS_82 EQU $82
 DEF COLL_OLD_GRASS    EQU $83
+endc
 
 ; new collision constants
 
@@ -140,8 +189,9 @@ DEF COLL_LAND2_S EQU $53
 ; $54..$57 will behave like COLL_LAND2_E
 
 ; falling warp collisions
-DEF COLL_PIT	 EQU $60
-DEF COLL_PIT_VB	 EQU $61 ; Why is this a pit?
+DEF COLL_PIT 		 EQU $60
+DEF COLL_PIT_VB		 EQU $61 ; Why is this a pit?
+DEF COLL_PIT_SKATE   EQU $62 ; unused
 
 ; warp collisions
 DEF COLL_CARPET   EQU $70
@@ -152,7 +202,10 @@ DEF COLL_STAIRS   EQU $75
 
 ; minigame collisions
 DEF COLL_SLOTS             EQU $80
-DEF COLL_CONSOLE           EQU $83
+DEF COLL_POKER             EQU $81 ; unused
+DEF COLL_MEMORY            EQU $82 ; unused
+DEF COLL_CONSOLE           EQU $83 ; scrapped soon after demo
+DEF COLL_GAME_84           EQU $84 ; unused
 
 ; special collisions
 DEF COLL_COUNTER           EQU $90
@@ -161,6 +214,7 @@ DEF COLL_VENDING_MACHINE   EQU $92
 DEF COLL_PC                EQU $93
 DEF COLL_RADIO             EQU $94
 DEF COLL_SIGNPOST          EQU $95
+DEF COLL_SPECIAL_96        EQU $96 ; unused
 DEF COLL_STRAIGHT_SIGNPOST EQU $97
 
 ; jump collisions
@@ -177,7 +231,7 @@ DEF COLL_JUMP_NW EQU $a7
 
 DEF COLL_FF EQU $ff
 
-DEF NEVER_SOLID     EQU 0
-DEF SOMETIMES_SOLID EQU 1
-DEF ALWAYS_SOLID    EQU 15
+DEF LAND_TILE     EQU 0
+DEF WATER_TILE EQU 1
+DEF WALL_TILE    EQU 15
 
