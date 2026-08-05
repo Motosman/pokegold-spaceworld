@@ -1,5 +1,6 @@
 	map_attributes Newtype, NEWTYPE
 	connection north, Route16, ROUTE_16, 5
+	connection south, Route27, ROUTE_27, 0
 	connection west, Route15, ROUTE_15, 0
 	connection east, Route17, ROUTE_17, 9
 
@@ -20,6 +21,10 @@ Newtype_MapEvents::
 	warp_event 35, 30, NEWTYPE_HOUSE_3, 1, 434
 	warp_event 18,  5, ROUTE_16_GATE, 1, 88
 	warp_event 19,  5, ROUTE_16_GATE, 2, 88
+	warp_event $10, $20, ROUTE_27, 15, 0
+	warp_event $10, $20, ROUTE_27, 16, 0
+	warp_event $10, $20, ROUTE_27, 17, 0
+	warp_event $10, $20, ROUTE_27, 18, 0
 
 	def_bg_events
 	bg_event  0,  8, 1

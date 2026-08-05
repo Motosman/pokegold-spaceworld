@@ -530,24 +530,6 @@ endc
 
 SECTION "Bank 04 Garbage", ROMX
 
-if DEF(_DEBUG)
-	db $18, $00 ; leftover of previous graphics
-Unreferenced_UnusedLeaderNameGFX:: INCBIN "gfx/trainer_card/unused_leader_name.2bpp"
-	if DEF(_GOLD)
-INCBIN "garbage/debug/bank04_gold.2bpp", 227
-	endc
-	if DEF(_SILVER)
-INCBIN "garbage/debug/bank04_silver.2bpp", 227
-	endc
-else
-	if DEF(_GOLD)
-INCBIN "garbage/bank04_gold.2bpp", 161
-endc
-	if DEF(_SILVER)
-INCBIN "garbage/bank04_silver.2bpp", 161
-	endc
-endc
-
 
 SECTION "Bank 05 Garbage", ROMX
 
@@ -1238,22 +1220,6 @@ endc
 
 
 SECTION "Bank 25 Garbage", ROMX
-
-if DEF(_DEBUG)
-	if DEF(_GOLD)
-	INCBIN "garbage/debug/bank25_gold.2bpp", 221
-	endc
-	if DEF(_SILVER)
-	INCBIN "garbage/debug/bank25_silver.2bpp", 221
-	endc
-else
-	if DEF(_GOLD)
-	INCBIN "garbage/bank25_gold.2bpp", 221
-	endc
-	if DEF(_SILVER)
-	INCBIN "garbage/bank25_silver.2bpp", 221
-	endc
-endc
 
 
 SECTION "Bank 26 Garbage", ROMX
@@ -2015,22 +1981,6 @@ endc
 
 
 SECTION "Bank 36 Garbage", ROMX
-
-if DEF(_DEBUG)
-	if DEF(_GOLD)
-	INCBIN "garbage/debug/bank36_gold.2bpp", 221
-	endc
-	if DEF(_SILVER)
-	INCBIN "garbage/debug/bank36_silver.2bpp", 213
-	endc
-else
-	if DEF(_GOLD)
-	INCBIN "garbage/bank36_gold.2bpp", 221
-	endc
-	if DEF(_SILVER)
-	INCBIN "garbage/bank36_silver.2bpp", 213
-	endc
-endc
 
 
 SECTION "Bank 37 Garbage", ROMX

@@ -26,6 +26,8 @@ INCLUDE "maps/OldCityPokecenterBattle.asm"
 INCLUDE "maps/OldCityPokecenterTimeMachine.asm"
 INCLUDE "maps/OldCityKurtsHouse.asm"
 INCLUDE "maps/OldCitySchool.asm"
+INCLUDE "maps/Route27.asm"
+INCLUDE "maps/Route28.asm"
 
 
 SECTION "West Interior Maps", ROMX

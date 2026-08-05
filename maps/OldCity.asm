@@ -1,4 +1,5 @@
-	map_attributes OldCity, OLD_CITY
+	map_attributes OldCity, OLD_CITY	
+	connection north, Route28, ROUTE_28, 5
 	connection south, Route2, ROUTE_2, 5
 	connection west, Route3, ROUTE_3, 5
 

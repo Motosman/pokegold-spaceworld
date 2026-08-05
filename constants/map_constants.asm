@@ -163,6 +163,8 @@ ENDM
 	map_const NEWTYPE_DINER,                     4,  4 ; 18
 	map_const NEWTYPE_HOUSE_2,                   5,  4 ; 19
 	map_const NEWTYPE_HOUSE_3,                   5,  4 ; 20
+	map_const ROUTE_27,                         30, 18 ; 21
+	map_const ROUTE_28,                         40,  9 ; 22
 	endgroup
 
 	newgroup  SUGAR                                    ;  8
