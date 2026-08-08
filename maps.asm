@@ -67,6 +67,7 @@ INCLUDE "maps/HighTechHouse2.asm"
 INCLUDE "maps/HighTechImposterOakHouse.asm"
 INCLUDE "maps/HighTechAquarium1F.asm"
 INCLUDE "maps/HighTechAquarium2F.asm"
+INCLUDE "maps/Route5.asm"
 
 
 SECTION "Font Interior Maps", ROMX

@@ -104,6 +104,7 @@ ENDM
 	map_const HIGHTECH_IMPOSTER_OAK_HOUSE,       5,  4 ; 12
 	map_const HIGHTECH_AQUARIUM_1F,              8,  4 ; 13
 	map_const HIGHTECH_AQUARIUM_2F,              8,  4 ; 14
+	map_const ROUTE_5,                          25,  9 ; 15
 	endgroup
 
 	newgroup  FONT                                     ;  5

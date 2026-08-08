@@ -1243,22 +1243,6 @@ endc
 
 SECTION "Bank 27 Garbage", ROMX
 
-if DEF(_DEBUG)
-	if DEF(_GOLD)
-	INCBIN "garbage/debug/bank27_gold.2bpp", 88
-	endc
-	if DEF(_SILVER)
-	INCBIN "garbage/debug/bank27_silver.2bpp", 88
-	endc
-else
-	if DEF(_GOLD)
-	INCBIN "garbage/bank27_gold.2bpp", 88
-	endc
-	if DEF(_SILVER)
-	INCBIN "garbage/bank27_silver.2bpp", 88
-	endc
-endc
-
 
 SECTION "Bank 28 Garbage", ROMX
 

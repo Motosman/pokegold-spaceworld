@@ -1,5 +1,6 @@
 	map_attributes HighTech, HIGHTECH
 	connection west, Route6, ROUTE_6, 0
+	connection east, Route5, ROUTE_5, 7
 
 HighTech_MapEvents::
 	dw $4000 ; unknown
