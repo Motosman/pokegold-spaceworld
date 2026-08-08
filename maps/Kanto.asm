@@ -36,6 +36,7 @@ Kanto_MapEvents::
 	warp_event 45, 46, KANTO_FISHING_GURU, 1, 887
 	warp_event  6, 27, ROUTE_23_GATE, 3, 508
 	warp_event 21, 13, KANTO_GAMEFREAK_HQ_1, 5, 263
+	warp_event 31,  4, ROUTE_27, 3, 0
 
 	def_bg_events
 	bg_event 14,  4, 1

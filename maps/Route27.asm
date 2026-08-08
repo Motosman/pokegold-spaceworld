@@ -6,8 +6,9 @@ Route27_MapEvents::
 
 	def_warp_events
 
-	warp_event  2,  4, ROUTE_28, 1, 0
-	warp_event  2,  5, ROUTE_28, 2, 0
+	warp_event  5,  4, ROUTE_28, 1, 0
+	warp_event  5,  5, ROUTE_28, 2, 0
+	warp_event 49, 21, KANTO, 31, 0
 	def_bg_events
 
 	def_object_events

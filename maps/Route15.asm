@@ -1,6 +1,6 @@
 	map_attributes Route15, ROUTE_15
 	connection north, Route14, ROUTE_14, 0
-	connection south, Route28, ROUTE_28, -25
+	connection south, Route28, ROUTE_28, -24
 	connection east, Newtype, NEWTYPE, 0
 
 Route15_MapEvents::
