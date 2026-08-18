@@ -251,7 +251,7 @@ PokemonPalettes::
 	db PAL_BROWNMON  ; SNUBBULL
 	db PAL_BROWNMON  ; TAIL
 	db PAL_GREENMON  ; LEAFY
-	db PAL_MEWMON    ; FC
-	db PAL_MEWMON    ; FD
+	db PAL_BLUEMON   ; SATO
+	db PAL_BLUEMON   ; IGARU
 	db PAL_MEWMON    ; FE
 	db PAL_MEWMON    ; FF

@@ -253,11 +253,11 @@ DEF NUM_KANTO_POKEMON EQU const_value - 1
 	const DEX_SNUBBULL      ; f9
 	const DEX_TAIL          ; fa AIPOM
 	const DEX_LEAFY         ; fb LEAFEON (evolved EEVEE)
+	const DEX_SATO          ; fc
+	const DEX_IGARU         ; fd CYNDAQUIL
 DEF NUM_POKEMON EQU const_value - 1
-	const DEX_FC            ; fc
-	const DEX_EGG           ; fd EGG
 DEF NUM_POKEMON_OLD EQU const_value - 1 ; Original count according to FightDebugMenu, perhaps DEX_EGG was originally in $fe?
-	const DEX_FE            ; fe
+	const DEX_EGG           ; fe
 
 ; Unown forms
 	const_def 1

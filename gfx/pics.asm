@@ -590,6 +590,10 @@ TailPicFront::        INCBIN "gfx/pokemon/tail/front.pic"
 TailPicBack::         INCBIN "gfx/pokemon/tail/back.pic"
 LeafyPicFront::       INCBIN "gfx/pokemon/leafy/front.pic"
 LeafyPicBack::        INCBIN "gfx/pokemon/leafy/back.pic"
+SatoPicFront::        INCBIN "gfx/pokemon/sato/front.pic"
+SatoPicBack::         INCBIN "gfx/pokemon/sato/back.pic"
+IgaruPicFront::       INCBIN "gfx/pokemon/igaru/front.pic"
+IgaruPicBack::        INCBIN "gfx/pokemon/igaru/back.pic"
 
 
 SECTION "Unown Pic Ptrs and Pics", ROMX

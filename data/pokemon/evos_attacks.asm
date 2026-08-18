@@ -3293,3 +3293,32 @@ LeafyEvosAttacks:
 	db 56, MOVE_WRAP
 	db 63, MOVE_SOLARBEAM
 	db 0 ; no more level-up moves
+
+SatoEvosAttacks:
+	db 0 ; no more evolutions
+	db  1, MOVE_POUND
+	db  1, MOVE_SPLASH
+	db  7, MOVE_WATER_GUN
+	db 14, MOVE_WING_ATTACK
+	db 21, MOVE_BUBBLEBEAM
+	db 28, MOVE_WHIRLWIND
+	db 40, MOVE_RAIN_DANCE
+	db 48, MOVE_MEGAPHONE
+	db 56, MOVE_SWEET_KISS
+	db 60, MOVE_FLAIL
+	db 65, MOVE_SKY_ATTACK
+	db 0 ; no more level-up moves
+
+IgaruEvosAttacks:
+	db 0 ; no more evolutions
+	db  1, MOVE_TACKLE
+	db  7, MOVE_POWDER_SNOW
+	db 14, MOVE_SHARPEN
+	db 21, MOVE_QUICK_ATTACK
+	db 28, MOVE_PIN_MISSILE
+	db 34, MOVE_ICE_PUNCH
+	db 37, MOVE_BODY_SLAM
+	db 45, MOVE_ROLLOUT
+	db 51, MOVE_BLIZZARD
+	db 54, MOVE_HYPER_BEAM
+	db 0 ; no more level-up moves

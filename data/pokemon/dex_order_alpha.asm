@@ -10,6 +10,7 @@ AlphabeticalPokedexOrder:
 	db DEX_UNOWN
 	db DEX_EEVEE
 	db DEX_IKARI
+	db DEX_IGARU
 	db DEX_GEODUDE
 	db DEX_ONIX
 	db DEX_ARCANINE
@@ -79,6 +80,7 @@ AlphabeticalPokedexOrder:
 	db DEX_VENONAT
 	db DEX_RHYDON
 	db DEX_RHYHORN
+	db DEX_SATO
 	db DEX_SUNNY
 	db DEX_HITMONLEE
 	db DEX_ZAPDOS

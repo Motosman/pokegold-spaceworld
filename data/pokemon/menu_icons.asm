@@ -252,3 +252,5 @@ MonMenuIcons::
 	db ICON_CLEFAIRY   ; f9 SNUBBULL
 	db ICON_LOKON      ; fa TAIL
 	db ICON_LOKON      ; fb LEAFY
+	db ICON_LAPRAS     ; fc SATO
+	db ICON_LOKON      ; fb IGARU

@@ -728,144 +728,9 @@ endc
 
 SECTION "Bank 10 Overdump", ROMX
 
-if DEF(_DEBUG)
-
-if DEF(_GOLD)
-Unreferenced_Corrupt_LeafyEvosAttacks1_Gold:
-	db 0 ; no more evolutions
-	db  1, MOVE_TACKLE
-	db  7, MOVE_SAND_ATTACK
-	db 14, MOVE_QUICK_ATTACK
-	db 21, MOVE_TAIL_WHIP
-	db 28, MOVE_ABSORB
-	db 35, MOVE_RAZOR_LEAF
-	db 42, MOVE_GROWTH
-	db 49, MOVE_MORNING_SUN
-	db 56, MOVE_WRAP
-	db 63, MOVE_SOLARBEAM
-	db 0 ; no more level-up moves
-endc
-Unreferenced_Corrupt_LeafyEvosAttacks1:
-	db MOVE_GROWTH
-	db 49, MOVE_MORNING_SUN
-	db 56, MOVE_WRAP
-	db 63, MOVE_SOLARBEAM
-	db 0 ; no more level-up moves
-if DEF(_SILVER)
-Unreferenced_Corrupt_LeafyEvosAttacks2:
-	db MOVE_ABSORB
-	db 35, MOVE_RAZOR_LEAF
-	db 42, MOVE_GROWTH
-	db 49, MOVE_MORNING_SUN
-	db 56, MOVE_WRAP
-	db 63, MOVE_SOLARBEAM
-	db 0 ; no more level-up moves
-Unreferenced_Corrupt_TailEvosAttacks:
-	db  1, MOVE_SCRATCH
-	db  5, MOVE_LEER
-	db  9, MOVE_SAND_ATTACK
-	db 14, MOVE_PURSUIT
-	db 19, MOVE_ENCORE
-endc
-	db 25, MOVE_SWIFT
-	db 31, MOVE_MUD_SLAP
-	db 38, MOVE_FURY_SWIPES
-	db 45, MOVE_MIMIC
-	db 0 ; no more level-up moves
-Unreferenced_Corrupt_LeafyEvosAttacks3:
-	db 0 ; no more evolutions
-	db  1, MOVE_TACKLE
-	db  7, MOVE_SAND_ATTACK
-	db 14, MOVE_QUICK_ATTACK
-	db 21, MOVE_TAIL_WHIP
-	db 28, MOVE_ABSORB
-	db 35, MOVE_RAZOR_LEAF
-	db 42, MOVE_GROWTH
-	db 49, MOVE_MORNING_SUN
-	db 56, MOVE_WRAP
-	db 63, MOVE_SOLARBEAM
-	db 0 ; no more level-up moves
-Unreferenced_Corrupt_LeafyEvosAttacks4:
-	db 56, MOVE_WRAP
-	db 63, MOVE_SOLARBEAM
-	db 0 ; no more level-up moves
-if DEF(_GOLD)
-	db $E6, $6D, $C3, $FF ; overdump
-
-INCBIN "overdump/debug/bank10_gold.2bpp"
-endc
-if DEF(_SILVER)
-	db 0, 0, 0, 0 ; overdump
-
-INCBIN "overdump/debug/bank10_silver.2bpp"
-endc
-else
-	if DEF(_GOLD)
-	Unreferenced_Corrupt_LeafyEvosAttacks1:
-	db 0 ; no more evolutions
-	db  1, MOVE_TACKLE
-	db  7, MOVE_SAND_ATTACK
-	db 14, MOVE_QUICK_ATTACK
-	db 21, MOVE_TAIL_WHIP
-	db 28, MOVE_ABSORB
-	db 35, MOVE_RAZOR_LEAF
-	db 42, MOVE_GROWTH
-	db 49, MOVE_MORNING_SUN
-	db 56, MOVE_WRAP
-	db 63, MOVE_SOLARBEAM
-	db 0 ; no more level-up moves
-	Unreferenced_Corrupt_TailEvosAttacks:
-	db  5, MOVE_LEER
-	db  9, MOVE_SAND_ATTACK
-	db 14, MOVE_PURSUIT
-	db 19, MOVE_ENCORE
-	db 25, MOVE_SWIFT
-	db 31, MOVE_MUD_SLAP
-	db 38, MOVE_FURY_SWIPES
-	db 45, MOVE_MIMIC
-	db 0 ; no more level-up moves
-	Unreferenced_Corrupt_LeafyEvosAttacks2:
-	db 0 ; no more evolutions
-	db  1, MOVE_TACKLE
-	db  7, MOVE_SAND_ATTACK
-	db 14, MOVE_QUICK_ATTACK
-	db 21, MOVE_TAIL_WHIP
-	db 28, MOVE_ABSORB
-	db 35, MOVE_RAZOR_LEAF
-	db 42, MOVE_GROWTH
-	db 49, MOVE_MORNING_SUN
-	db 56, MOVE_WRAP
-	db 63, MOVE_SOLARBEAM
-	db 0 ; no more level-up moves
-	Unreferenced_Corrupt_LeafyEvosAttacks3:
-	db 56, MOVE_WRAP
-	db 63, MOVE_SOLARBEAM
-	db 0 ; no more level-up moves
-	db $1E, $DF, $90, $F6 ; overdump
-	INCBIN "overdump/bank10_gold.2bpp"
-	endc
-	if DEF(_SILVER)
-INCBIN "overdump/bank10_silver.2bpp", 186
-	endc
-endc
 
 SECTION "Bank 11 Overdump", ROMX
 
-if DEF(_DEBUG)
-	if DEF(_GOLD)
-	INCBIN "overdump/debug/bank11_gold.2bpp", 49
-	endc
-	if DEF(_SILVER)
-	INCBIN "overdump/debug/bank11_silver.2bpp", 49
-	endc
-else
-	if DEF(_GOLD)
-	INCBIN "overdump/bank11_gold.2bpp", 49
-	endc
-	if DEF(_SILVER)
-	INCBIN "overdump/bank11_silver.2bpp", 49
-	endc
-endc
 
 SECTION "Bank 12 Overdump", ROMX
 
@@ -906,22 +771,6 @@ endc
 
 
 SECTION "Bank 14 Overdump", ROMX
-
-if DEF(_DEBUG)
-	if DEF(_GOLD)
-	INCBIN "overdump/debug/bank14_gold.2bpp", 116
-	endc
-	if DEF(_SILVER)
-	INCBIN "overdump/debug/bank14_silver.2bpp", 116
-	endc
-else
-	if DEF(_GOLD)
-	INCBIN "overdump/bank14_gold.2bpp", 116
-	endc
-	if DEF(_SILVER)
-	INCBIN "overdump/bank14_silver.2bpp", 116
-	endc
-endc
 
 
 SECTION "Bank 15 Overdump", ROMX
@@ -1116,22 +965,6 @@ endc
 
 SECTION "Bank 1f Overdump", ROMX
 
-if DEF(_DEBUG)
-	if DEF(_GOLD)
-	INCBIN "overdump/debug/bank1f_gold.2bpp", 201
-	endc
-	if DEF(_SILVER)
-	INCBIN "overdump/debug/bank1f_silver.2bpp", 201
-	endc
-else
-	if DEF(_GOLD)
-	INCBIN "overdump/bank1f_gold.2bpp", 201
-	endc
-	if DEF(_SILVER)
-	INCBIN "overdump/bank1f_silver.2bpp", 201
-	endc
-endc
-
 
 SECTION "Bank 20 Overdump", ROMX
 
@@ -1193,22 +1026,6 @@ endc
 
 
 SECTION "Bank 23 Overdump", ROMX
-
-if DEF(_DEBUG)
-	if DEF(_GOLD)
-	INCBIN "overdump/debug/bank23_gold.2bpp", 37
-	endc
-	if DEF(_SILVER)
-	INCBIN "overdump/debug/bank23_silver.2bpp", 37
-	endc
-else
-	if DEF(_GOLD)
-	INCBIN "overdump/bank23_gold.2bpp", 37
-	endc
-	if DEF(_SILVER)
-	INCBIN "overdump/bank23_silver.2bpp", 37
-	endc
-endc
 
 
 SECTION "Bank 24 Overdump", ROMX

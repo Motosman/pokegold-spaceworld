@@ -1050,6 +1050,8 @@ PokedexEntryPointers2::
 	dw SnubbullDexEntry
 	dw TailDexEntry
 	dw LeafyDexEntry
+	dw SatoDexEntry
+	dw IgaruDexEntry
 
 VoltorbDexEntry:
 	db "ボール@"
@@ -2161,6 +2163,20 @@ TailDexEntry:
 	next "げんざい　ちょうさちゅう。@"
 
 LeafyDexEntry:
+	db "？？？@"
+	db 0
+	dw 0
+	db   "はっけんされた　ばかりの　ポケモン"
+	next "げんざい　ちょうさちゅう。@"
+
+SatoDexEntry:
+	db "？？？@"
+	db 0
+	dw 0
+	db   "はっけんされた　ばかりの　ポケモン"
+	next "げんざい　ちょうさちゅう。@"
+
+IgaruDexEntry:
 	db "？？？@"
 	db 0
 	dw 0

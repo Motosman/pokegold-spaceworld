@@ -250,3 +250,5 @@ PokemonNames::
 	db "ブルー@@" ; SNUBBULL
 	db "テイル@@" ; TAIL
 	db "リーフィ@" ; LEAFY
+	db "サト@@@" ; SATO
+	db "イガルー@" ; IGARU

@@ -252,3 +252,5 @@ EvosAttacksPointers::
 	dw SnubbullEvosAttacks
 	dw TailEvosAttacks
 	dw LeafyEvosAttacks
+	dw SatoEvosAttacks
+	dw IgaruEvosAttacks
